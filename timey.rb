@@ -36,17 +36,6 @@ end
 
 def pretty_it_all_up(files, apps)
 
-
-  # apps_table_rows = []
-  # apps.each_pair do |thing, duration|
-  #   apps_table_rows << [thing, (formatted duration)]
-  # end
-
-  # files_table_rows = []
-  # times.each_pair do |thing, duration|
-  #   files_table_rows << [thing, (formatted duration)]
-  # end
-
   puts
   puts pretty apps, ['Application', 'Seconds / Minutes / Hours']
   puts
