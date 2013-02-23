@@ -37,9 +37,9 @@ end
 def pretty_it_all_up(files, apps)
 
   puts
-  puts pretty apps, ['Application', 'Seconds / Minutes / Hours']
-  puts
   puts pretty files, ['File', 'Seconds / Minutes / Hours']
+  puts
+  puts pretty apps, ['Application', 'Seconds / Minutes / Hours']
   puts
 
 end
