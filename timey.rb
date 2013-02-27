@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'CSV'
 require 'bundler/setup'
 Bundler.require
  
@@ -20,7 +21,7 @@ def idle_time
 end
 
 def formatted seconds
-  "#{seconds} / #{(seconds/60).to_f} / #{(seconds/60/60).to_f}"
+  "#{seconds} / #{(seconds/60.to_f).to_f} / #{(seconds/60.to_f/60.to_f).to_f}"
 end
 
 def pretty(things, headings)
@@ -36,11 +37,24 @@ end
 
 def pretty_it_all_up(files, apps)
 
+  print_to_csv("File", files)
+  print_to_csv("App", apps)
+
   puts
   puts pretty files, ['File', 'Seconds / Minutes / Hours']
   puts
   puts pretty apps, ['Application', 'Seconds / Minutes / Hours']
   puts
+
+end
+
+def print_to_csv(name, things)
+  CSV.open("./#{Date.today}_#{name}.csv", "wb") do |csv|
+    csv << [name, "Hours"]
+    things.each_pair do |key, val|
+      csv << [key, val/60.to_f/60.to_f]
+    end
+  end
 
 end
 
